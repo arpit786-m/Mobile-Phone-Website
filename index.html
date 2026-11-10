@@ -1192,19 +1192,83 @@
             <label class="section-subheading"><i class="fa-solid fa-wallet"></i> Choose Payment Method</label>
             
             <div class="payment-method-selector">
+
+              <!-- UPI / Google Pay Option -->
               <label class="pay-option">
-                <input type="radio" name="paymentMethod" value="upi" checked>
+                <input type="radio" name="paymentMethod" value="upi" id="payUPI" checked>
                 <div class="pay-option-card">
-                  <i class="fa-solid fa-qrcode text-accent"></i>
+                  <i class="fa-brands fa-google-pay text-accent" style="font-size:1.6rem;"></i>
                   <div>
-                    <strong>Instant UPI</strong>
-                    <span>GPay, PhonePe, Paytm (Flat ₹200 Cashback)</span>
+                    <strong>Google Pay / UPI</strong>
+                    <span>Instant transfer via GPay, PhonePe, Paytm, BHIM</span>
                   </div>
                 </div>
               </label>
 
+              <!-- UPI Payment Details Panel (shown only when UPI is selected) -->
+              <div class="upi-payment-panel" id="upiPaymentPanel">
+                <div class="upi-panel-inner">
+
+                  <!-- Left: QR Code -->
+                  <div class="upi-qr-col">
+                    <div class="upi-qr-box">
+                      <!-- QR code generated via Google Charts API for UPI deep link -->
+                      <img
+                        id="upiQrImg"
+                        src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=upi%3A%2F%2Fpay%3Fpa%3D8104686396%40okbizaxis%26pn%3DMobileHub%26am%3D0%26cu%3DINR%26tn%3DMobileHub+Order+Payment&margin=4&bgcolor=0d1527&color=00d2ff"
+                        alt="Scan to Pay via Google Pay / UPI"
+                        width="160"
+                        height="160"
+                      >
+                    </div>
+                    <span class="qr-label">Scan with any UPI app</span>
+                  </div>
+
+                  <!-- Right: UPI ID details & deep link -->
+                  <div class="upi-details-col">
+                    <div class="upi-id-block">
+                      <span class="upi-block-label">Pay to UPI ID (Google Pay):</span>
+                      <div class="upi-id-row">
+                        <code class="upi-id-code" id="upiIdCode">8104686396@okbizaxis</code>
+                        <button type="button" class="upi-copy-btn" id="upiCopyBtn" title="Copy UPI ID">
+                          <i class="fa-regular fa-copy"></i>
+                        </button>
+                      </div>
+                      <span class="upi-copy-confirm" id="upiCopyConfirm">Copied!</span>
+                    </div>
+
+                    <div class="upi-id-block">
+                      <span class="upi-block-label">Mobile / GPay Number:</span>
+                      <div class="upi-id-row">
+                        <code class="upi-id-code">8104686396</code>
+                        <a
+                          href="gpay://upi/pay?pa=8104686396@okbizaxis&pn=MobileHub&cu=INR&tn=MobileHub Order"
+                          class="upi-open-btn"
+                          id="openGpayBtn"
+                        >
+                          <i class="fa-brands fa-google-pay"></i> Open GPay
+                        </a>
+                      </div>
+                    </div>
+
+                    <div class="upi-amount-banner" id="upiAmountBanner">
+                      <i class="fa-solid fa-indian-rupee-sign"></i>
+                      Payable: <strong id="upiPayableAmount">₹0</strong>
+                    </div>
+
+                    <div class="upi-steps">
+                      <p><i class="fa-solid fa-circle-1 text-accent"></i> Open <strong>Google Pay / PhonePe / Paytm</strong></p>
+                      <p><i class="fa-solid fa-circle-2 text-accent"></i> Send to UPI: <strong>8104686396@okbizaxis</strong></p>
+                      <p><i class="fa-solid fa-circle-3 text-accent"></i> Enter exact amount & note your <strong>Order ID</strong></p>
+                      <p><i class="fa-solid fa-circle-4 text-accent"></i> Click <strong>Confirm & Place Order</strong> below</p>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
               <label class="pay-option">
-                <input type="radio" name="paymentMethod" value="card">
+                <input type="radio" name="paymentMethod" value="card" id="payCard">
                 <div class="pay-option-card">
                   <i class="fa-solid fa-credit-card text-accent"></i>
                   <div>
@@ -1215,12 +1279,12 @@
               </label>
 
               <label class="pay-option">
-                <input type="radio" name="paymentMethod" value="cod">
+                <input type="radio" name="paymentMethod" value="cod" id="payCOD">
                 <div class="pay-option-card">
                   <i class="fa-solid fa-truck-ramp-box text-accent"></i>
                   <div>
                     <strong>Cash on Delivery (COD)</strong>
-                    <span>Pay cash or UPI at your doorstep</span>
+                    <span>Pay cash or UPI at your doorstep on arrival</span>
                   </div>
                 </div>
               </label>

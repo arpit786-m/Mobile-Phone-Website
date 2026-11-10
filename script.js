@@ -1452,12 +1452,47 @@ function openCheckout() {
   }
   DOM.checkoutFinalAmount.textContent = formatINR(grandTotal);
 
+  // Update UPI QR code and payable amount with actual grand total
+  updateUPIPanel(grandTotal);
+
   DOM.checkoutFormView.style.display = "block";
   DOM.checkoutSuccessView.style.display = "none";
+
+  // Show UPI panel by default since UPI is pre-selected
+  showUPIPanel(true);
 
   DOM.checkoutModal.classList.add("active");
   DOM.checkoutBackdrop.classList.add("active");
   document.body.style.overflow = "hidden";
+}
+
+// UPI Panel helpers
+const UPI_ID   = "8104686396@okbizaxis";
+const UPI_NAME = "MobileHub";
+const UPI_PHONE = "8104686396";
+
+function updateUPIPanel(amount) {
+  const amountEl = document.getElementById("upiPayableAmount");
+  if (amountEl) amountEl.textContent = formatINR(amount);
+
+  // Regenerate QR with the exact payable amount embedded in the UPI deep link
+  const qrImg = document.getElementById("upiQrImg");
+  if (qrImg) {
+    const upiLink = `upi://pay?pa=${UPI_ID}&pn=${encodeURIComponent(UPI_NAME)}&am=${amount}&cu=INR&tn=${encodeURIComponent("MobileHub Order Payment")}`;
+    const qrApiUrl = `https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=${encodeURIComponent(upiLink)}&margin=4&bgcolor=0d1527&color=00d2ff`;
+    qrImg.src = qrApiUrl;
+  }
+
+  // Update GPay deep link href with exact amount
+  const gpayBtn = document.getElementById("openGpayBtn");
+  if (gpayBtn) {
+    gpayBtn.href = `gpay://upi/pay?pa=${UPI_ID}&pn=${encodeURIComponent(UPI_NAME)}&am=${amount}&cu=INR&tn=MobileHub+Order`;
+  }
+}
+
+function showUPIPanel(visible) {
+  const panel = document.getElementById("upiPaymentPanel");
+  if (panel) panel.style.display = visible ? "block" : "none";
 }
 
 function closeCheckout() {
@@ -1493,9 +1528,9 @@ function handleCheckoutSubmit(e) {
     DOM.receiptOrderId.textContent = randomOrderNum;
     DOM.receiptDeliveryDate.textContent = "Estimated Delivery: Within 24-48 Hours";
     
-    let payText = "Instant UPI (Confirmed)";
-    if (paymentMethod === "card") payText = "Credit Card (No-Cost EMI Active)";
-    if (paymentMethod === "cod") payText = "Cash on Delivery (Pay upon delivery)";
+    let payText = "Paid via UPI (GPay: 8104686396)";
+    if (paymentMethod === "card") payText = "Credit / Debit Card (No-Cost EMI Active)";
+    if (paymentMethod === "cod") payText = "Cash on Delivery (Pay at doorstep)";
     DOM.receiptPaymentMode.textContent = payText;
     
     DOM.receiptAmount.textContent = formatINR(grandTotal);
@@ -1876,6 +1911,31 @@ function initEventListeners() {
       closeQuickView();
       closeCheckout();
       closeMobileDrawer();
+    }
+  });
+
+  // ---- Payment Method Radio: show/hide UPI panel ----
+  // Use event delegation on the form since the radios are inside the checkout form
+  DOM.checkoutForm.addEventListener("change", (e) => {
+    if (e.target.name === "paymentMethod") {
+      const isUPI = e.target.value === "upi";
+      showUPIPanel(isUPI);
+    }
+  });
+
+  // UPI ID Copy Button (delegated because it's inside a dynamic panel)
+  document.addEventListener("click", (e) => {
+    if (e.target.closest("#upiCopyBtn")) {
+      navigator.clipboard.writeText(UPI_ID).then(() => {
+        const confirm = document.getElementById("upiCopyConfirm");
+        if (confirm) {
+          confirm.style.opacity = "1";
+          setTimeout(() => { confirm.style.opacity = "0"; }, 2200);
+        }
+        showToast(`UPI ID <strong>${UPI_ID}</strong> copied to clipboard!`, "info");
+      }).catch(() => {
+        showToast(`Your UPI ID: ${UPI_ID}`, "info");
+      });
     }
   });
 }
