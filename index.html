@@ -1,0 +1,1310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MobileHub - India's Premier Online Smartphone Retailer. Shop Apple iPhone, Samsung Galaxy, OnePlus, Xiaomi, Vivo, Oppo & premium accessories at unmatched prices with official warranty.">
+  <meta name="keywords" content="smartphones, mobile phones, buy iPhone, Samsung Galaxy S25, OnePlus 13, mobile shop online, best phone deals India">
+  <title>MobileHub | Discover Your Next Flagship Smartphone</title>
+
+  <!-- Google Fonts: Plus Jakarta Sans & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="top-bar">
+    <div class="container top-bar-content">
+      <div class="top-bar-left">
+        <span class="badge-pulse"><span class="pulse-dot"></span> FLASH SALE</span>
+        <span>Get extra 10% instant discount with code: <strong class="coupon-chip" id="copyTopPromo" title="Click to copy coupon">MOBHUB10</strong></span>
+      </div>
+      <div class="top-bar-right">
+        <span><i class="fa-solid fa-truck-fast"></i> Free 24h Express Delivery</span>
+        <span class="divider">|</span>
+        <span><i class="fa-solid fa-shield-halved"></i> 1 Year Brand Warranty</span>
+        <span class="divider">|</span>
+        <a href="#contact" class="top-link"><i class="fa-solid fa-headset"></i> 1800-889-MOBI</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Navigation Header -->
+  <header class="site-header" id="header">
+    <div class="container header-container">
+      
+      <!-- Logo -->
+      <a href="#" class="brand-logo" aria-label="MobileHub Home">
+        <div class="logo-icon-wrap">
+          <i class="fa-solid fa-mobile-screen-button logo-icon"></i>
+          <span class="logo-sparkle"><i class="fa-solid fa-bolt"></i></span>
+        </div>
+        <div class="logo-text-wrap">
+          <span class="logo-title">Mobile<span class="accent-text">Hub</span></span>
+          <span class="logo-tagline">Flagship Store</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="desktop-nav" aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="#home" class="nav-link active">Home</a></li>
+          <li><a href="#categories" class="nav-link">Brands</a></li>
+          <li><a href="#products" class="nav-link">Smartphones</a></li>
+          <li><a href="#deals" class="nav-link deals-link"><i class="fa-solid fa-fire-flame-curved"></i> Deals</a></li>
+          <li><a href="#accessories-section" class="nav-link">Accessories</a></li>
+          <li><a href="#why-us" class="nav-link">Why Us</a></li>
+          <li><a href="#testimonials" class="nav-link">Reviews</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Live Search Bar -->
+      <div class="header-search">
+        <form class="search-form" id="searchForm" role="search">
+          <i class="fa-solid fa-magnifying-glass search-icon"></i>
+          <input 
+            type="search" 
+            id="searchInput" 
+            class="search-input" 
+            placeholder="Search iPhone 17, S25 Ultra, OnePlus..." 
+            autocomplete="off"
+            aria-label="Search mobile phones"
+          >
+          <button type="button" class="clear-search-btn" id="clearSearchBtn" aria-label="Clear search" style="display:none;">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </form>
+
+        <!-- Live Instant Search Suggestions Popup -->
+        <div class="search-suggestions" id="searchSuggestions">
+          <div class="suggestions-header">Quick Results</div>
+          <div class="suggestions-list" id="suggestionsList"></div>
+        </div>
+      </div>
+
+      <!-- Header Action Buttons -->
+      <div class="header-actions">
+        <!-- Wishlist Button -->
+        <button class="action-btn" id="wishlistToggleBtn" title="View Wishlist" aria-label="Wishlist">
+          <i class="fa-regular fa-heart"></i>
+          <span class="badge-count" id="wishlistCount">0</span>
+        </button>
+
+        <!-- Cart Button -->
+        <button class="action-btn cart-btn-pill" id="cartToggleBtn" title="View Shopping Cart" aria-label="Shopping Cart">
+          <div class="cart-icon-wrap">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <span class="badge-count" id="cartCount">0</span>
+          </div>
+          <div class="cart-btn-details">
+            <span class="cart-btn-label">Cart</span>
+            <span class="cart-btn-price" id="cartBtnTotal">₹0</span>
+          </div>
+        </button>
+
+        <!-- Mobile Hamburger Toggle -->
+        <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-drawer-overlay" id="drawerOverlay"></div>
+  <aside class="mobile-drawer" id="mobileDrawer" aria-label="Mobile Menu">
+    <div class="drawer-header">
+      <div class="brand-logo">
+        <i class="fa-solid fa-mobile-screen-button logo-icon"></i>
+        <span class="logo-title">Mobile<span class="accent-text">Hub</span></span>
+      </div>
+      <button class="drawer-close-btn" id="drawerCloseBtn" aria-label="Close menu">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Search -->
+    <div class="mobile-search-box">
+      <input type="text" id="mobileSearchInput" placeholder="Search smartphones & gadgets...">
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </div>
+
+    <ul class="drawer-links">
+      <li><a href="#home" class="drawer-link"><i class="fa-solid fa-house"></i> Home</a></li>
+      <li><a href="#products" class="drawer-link"><i class="fa-solid fa-mobile-retro"></i> Smartphones</a></li>
+      <li><a href="#categories" class="drawer-link"><i class="fa-solid fa-layer-group"></i> Shop by Brand</a></li>
+      <li><a href="#deals" class="drawer-link"><i class="fa-solid fa-bolt-lightning text-accent"></i> Flash Deals</a></li>
+      <li><a href="#accessories-section" class="drawer-link"><i class="fa-solid fa-headphones"></i> Accessories</a></li>
+      <li><a href="#why-us" class="drawer-link"><i class="fa-solid fa-award"></i> Why Choose Us</a></li>
+      <li><a href="#testimonials" class="drawer-link"><i class="fa-solid fa-comment-dots"></i> Customer Reviews</a></li>
+      <li><a href="#contact" class="drawer-link"><i class="fa-solid fa-envelope"></i> Contact Us</a></li>
+    </ul>
+
+    <div class="drawer-footer">
+      <div class="drawer-contact-card">
+        <i class="fa-solid fa-phone-volume"></i>
+        <div>
+          <span class="contact-card-sub">Customer Helpline</span>
+          <strong>1800-889-MOBI</strong>
+        </div>
+      </div>
+      <div class="drawer-promo-pill">
+        <i class="fa-solid fa-tag"></i> Use coupon <strong>MOBHUB10</strong> for 10% OFF
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Content Wrap -->
+  <main id="mainContent">
+
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="home">
+      <div class="hero-bg-glow"></div>
+      <div class="hero-particles" id="heroParticles"></div>
+
+      <div class="container hero-container">
+        
+        <!-- Hero Text & CTA -->
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span class="badge-dot"></span>
+            <span>NEXT-GEN FLAGSHIP LAUNCH 2025-2026</span>
+          </div>
+
+          <h1 class="hero-title">
+            Discover Your Next <span class="gradient-text">Smartphone</span>
+          </h1>
+
+          <p class="hero-subtitle">
+            Unleash titanium craftsmanship, revolutionary 200MP AI cameras, and all-day silicon power. Experience India's lowest prices, instant bank discounts up to ₹10,000, and 24-month No-Cost EMI.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#products" class="btn btn-primary btn-lg">
+              <span>Shop Flagships</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+            <a href="#deals" class="btn btn-outline btn-lg">
+              <i class="fa-solid fa-fire"></i>
+              <span>Explore Deals</span>
+            </a>
+          </div>
+
+          <!-- Trust Counters / Badges -->
+          <div class="hero-stats">
+            <div class="stat-item">
+              <span class="stat-number">50K+</span>
+              <span class="stat-label">Happy Buyers</span>
+            </div>
+            <div class="stat-separator"></div>
+            <div class="stat-item">
+              <span class="stat-number">100%</span>
+              <span class="stat-label">Official Units</span>
+            </div>
+            <div class="stat-separator"></div>
+            <div class="stat-item">
+              <span class="stat-number">4.9★</span>
+              <span class="stat-label">Google Rating</span>
+            </div>
+            <div class="stat-separator"></div>
+            <div class="stat-item">
+              <span class="stat-number">24h</span>
+              <span class="stat-label">Express Ship</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Interactive Showcase Card -->
+        <div class="hero-visual">
+          <div class="hero-card-glass">
+            
+            <!-- Switcher Tabs -->
+            <div class="hero-device-switcher">
+              <button class="switcher-pill active" data-hero="iphone">iPhone 17 Pro</button>
+              <button class="switcher-pill" data-hero="s25">Galaxy S25 Ultra</button>
+              <button class="switcher-pill" data-hero="op13">OnePlus 13</button>
+            </div>
+
+            <!-- Showcase Main Area -->
+            <div class="showcase-stage">
+              <div class="showcase-glow"></div>
+              
+              <div class="hero-phone-wrap">
+                <img 
+                  id="heroPhoneImg" 
+                  src="https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=900&auto=format&fit=crop&q=80" 
+                  alt="Flagship Smartphone"
+                  class="hero-phone-img"
+                >
+              </div>
+
+              <!-- Floating Tech Badges -->
+              <div class="tech-badge tech-badge-1" id="heroBadge1">
+                <i class="fa-solid fa-microchip"></i>
+                <div>
+                  <span class="tb-title">Apple A19 Pro</span>
+                  <span class="tb-sub">3nm Flagship Silicon</span>
+                </div>
+              </div>
+
+              <div class="tech-badge tech-badge-2" id="heroBadge2">
+                <i class="fa-solid fa-camera"></i>
+                <div>
+                  <span class="tb-title">48MP Triple Pro</span>
+                  <span class="tb-sub">120mm 5x Telephoto</span>
+                </div>
+              </div>
+
+              <div class="tech-badge tech-badge-3" id="heroBadge3">
+                <i class="fa-solid fa-battery-bolt"></i>
+                <div>
+                  <span class="tb-title">All-Day Battery</span>
+                  <span class="tb-sub">33h Video Playback</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Hero Card Footer / Quick Action -->
+            <div class="showcase-footer">
+              <div class="showcase-info">
+                <h3 id="heroDeviceName">Apple iPhone 17 Pro Max</h3>
+                <div class="showcase-pricing">
+                  <span class="showcase-price" id="heroDevicePrice">₹1,34,900</span>
+                  <span class="showcase-original" id="heroDeviceOriginal">₹1,44,900</span>
+                  <span class="showcase-discount" id="heroDeviceDiscount">7% OFF</span>
+                </div>
+              </div>
+              <button class="btn btn-primary hero-order-btn" id="heroOrderBtn">
+                <i class="fa-solid fa-cart-plus"></i> View Phone
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- TRUST STRIP / WHY SHOP HERE -->
+    <section class="trust-strip">
+      <div class="container trust-container">
+        <div class="trust-box">
+          <div class="trust-icon-wrap"><i class="fa-solid fa-shield-check"></i></div>
+          <div class="trust-info">
+            <h4>100% Genuine Sealed</h4>
+            <p>Direct manufacturer sourced with seal pack guarantee</p>
+          </div>
+        </div>
+        <div class="trust-box">
+          <div class="trust-icon-wrap"><i class="fa-solid fa-truck-ramp-box"></i></div>
+          <div class="trust-info">
+            <h4>Express 24-48h Delivery</h4>
+            <p>Safe insured transit across 28,000+ Indian PIN codes</p>
+          </div>
+        </div>
+        <div class="trust-box">
+          <div class="trust-icon-wrap"><i class="fa-solid fa-credit-card"></i></div>
+          <div class="trust-info">
+            <h4>No-Cost EMI up to 24m</h4>
+            <p>Available on all major Credit & Debit cards & UPI</p>
+          </div>
+        </div>
+        <div class="trust-box">
+          <div class="trust-icon-wrap"><i class="fa-solid fa-arrows-rotate"></i></div>
+          <div class="trust-info">
+            <h4>7-Day Free Replacement</h4>
+            <p>Hassle-free instant replacement for any hardware defect</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FLASH DEALS COUNTDOWN BANNER -->
+    <section class="flash-deals-section" id="deals">
+      <div class="container">
+        <div class="flash-card-banner">
+          <div class="flash-info-col">
+            <div class="flash-badge">
+              <i class="fa-solid fa-bolt-lightning"></i> LIMITED TIME OFFER
+            </div>
+            <h2 class="flash-title">Midnight Mega Smartphone Fest</h2>
+            <p class="flash-desc">
+              Grab up to ₹15,000 off on select 2025/2026 flagship smartphones. Extra ₹5,000 instant cashback on HDFC & ICICI bank cards.
+            </p>
+            
+            <div class="coupon-box">
+              <span>Use Coupon at checkout:</span>
+              <div class="coupon-code-pill" id="couponCopyBtn" role="button" tabindex="0" title="Click to copy">
+                <code id="flashCouponCode">MOBHUB10</code>
+                <i class="fa-regular fa-copy"></i>
+              </div>
+              <span class="copy-alert" id="copyAlert">Copied!</span>
+            </div>
+          </div>
+
+          <div class="flash-timer-col">
+            <span class="timer-label">Sale Ends In:</span>
+            <div class="countdown-clock" id="countdownClock">
+              <div class="clock-unit">
+                <span class="clock-num" id="timerHours">08</span>
+                <span class="clock-tag">Hours</span>
+              </div>
+              <span class="clock-colon">:</span>
+              <div class="clock-unit">
+                <span class="clock-num" id="timerMins">42</span>
+                <span class="clock-tag">Mins</span>
+              </div>
+              <span class="clock-colon">:</span>
+              <div class="clock-unit">
+                <span class="clock-num" id="timerSecs">19</span>
+                <span class="clock-tag">Secs</span>
+              </div>
+            </div>
+
+            <div class="stock-progress-wrap">
+              <div class="stock-progress-labels">
+                <span>Stock Claimed: <strong>84%</strong></span>
+                <span class="hurry-text">Only 16 units remaining!</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 84%;"></div>
+              </div>
+            </div>
+            
+            <button class="btn btn-primary flash-shop-btn" id="flashShopNowBtn">
+              <span>Grab Flash Deals Now</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUCT CATEGORIES SECTION -->
+    <section class="categories-section" id="categories">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag"><i class="fa-solid fa-layer-group"></i> TOP SMARTPHONE BRANDS</div>
+          <h2 class="section-title">Explore by <span class="gradient-text">Top Brands</span></h2>
+          <p class="section-subtitle">Select your favorite manufacturer to browse authorized models, specs, and exclusive bundled offers.</p>
+        </div>
+
+        <div class="category-grid" id="categoryGrid">
+          
+          <!-- Apple Card -->
+          <div class="category-card" data-category="apple" role="button" tabindex="0">
+            <div class="category-badge">Flagship iOS</div>
+            <div class="cat-logo-circle"><i class="fa-brands fa-apple"></i></div>
+            <div class="cat-image-wrap">
+              <img src="https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=600&auto=format&fit=crop&q=80" alt="Apple iPhone">
+            </div>
+            <div class="cat-details">
+              <h3 class="cat-name">Apple iPhone</h3>
+              <p class="cat-sub">iPhone 17 Pro, 17, 16 Series</p>
+              <div class="cat-meta">
+                <span>Starting ₹59,900</span>
+                <span class="cat-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Samsung Card -->
+          <div class="category-card" data-category="samsung" role="button" tabindex="0">
+            <div class="category-badge">Galaxy AI</div>
+            <div class="cat-logo-circle"><i class="fa-solid fa-s"></i></div>
+            <div class="cat-image-wrap">
+              <img src="https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=600&auto=format&fit=crop&q=80" alt="Samsung Galaxy">
+            </div>
+            <div class="cat-details">
+              <h3 class="cat-name">Samsung</h3>
+              <p class="cat-sub">Galaxy S25 Ultra, S24 FE, Z Fold</p>
+              <div class="cat-meta">
+                <span>Starting ₹42,999</span>
+                <span class="cat-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- OnePlus Card -->
+          <div class="category-card" data-category="oneplus" role="button" tabindex="0">
+            <div class="category-badge">Never Settle</div>
+            <div class="cat-logo-circle"><i class="fa-solid fa-1"></i></div>
+            <div class="cat-image-wrap">
+              <img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=600&auto=format&fit=crop&q=80" alt="OnePlus 13">
+            </div>
+            <div class="cat-details">
+              <h3 class="cat-name">OnePlus</h3>
+              <p class="cat-sub">OnePlus 13, 12, Nord Series</p>
+              <div class="cat-meta">
+                <span>Starting ₹28,999</span>
+                <span class="cat-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Xiaomi Card -->
+          <div class="category-card" data-category="xiaomi" role="button" tabindex="0">
+            <div class="category-badge">Leica Optics</div>
+            <div class="cat-logo-circle"><i class="fa-solid fa-bolt"></i></div>
+            <div class="cat-image-wrap">
+              <img src="https://images.unsplash.com/photo-1567581935884-3349723552ca?w=600&auto=format&fit=crop&q=80" alt="Xiaomi and Redmi">
+            </div>
+            <div class="cat-details">
+              <h3 class="cat-name">Xiaomi & Redmi</h3>
+              <p class="cat-sub">Xiaomi 15 Ultra, Redmi Note 14</p>
+              <div class="cat-meta">
+                <span>Starting ₹18,999</span>
+                <span class="cat-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Vivo Card -->
+          <div class="category-card" data-category="vivo" role="button" tabindex="0">
+            <div class="category-badge">ZEISS Portrait</div>
+            <div class="cat-logo-circle"><i class="fa-solid fa-v"></i></div>
+            <div class="cat-image-wrap">
+              <img src="https://images.unsplash.com/photo-1580910051074-3eb694886505?w=600&auto=format&fit=crop&q=80" alt="Vivo V and X series">
+            </div>
+            <div class="cat-details">
+              <h3 class="cat-name">Vivo</h3>
+              <p class="cat-sub">Vivo X200 Pro, V40 Pro Series</p>
+              <div class="cat-meta">
+                <span>Starting ₹24,999</span>
+                <span class="cat-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Oppo Card -->
+          <div class="category-card" data-category="oppo" role="button" tabindex="0">
+            <div class="category-badge">Ultra AI Zoom</div>
+            <div class="cat-logo-circle"><i class="fa-solid fa-o"></i></div>
+            <div class="cat-image-wrap">
+              <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&auto=format&fit=crop&q=80" alt="Oppo Find and Reno">
+            </div>
+            <div class="cat-details">
+              <h3 class="cat-name">Oppo</h3>
+              <p class="cat-sub">Find X8 Pro, Reno 12 Series</p>
+              <div class="cat-meta">
+                <span>Starting ₹26,999</span>
+                <span class="cat-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED PRODUCTS & SMARTPHONE CATALOG -->
+    <section class="products-section" id="products">
+      <div class="container">
+        
+        <div class="section-header">
+          <div class="section-tag"><i class="fa-solid fa-sparkles"></i> 2025/2026 FLAGSHIP COLLECTION</div>
+          <h2 class="section-title">Explore <span class="gradient-text">Featured Smartphones</span></h2>
+          <p class="section-subtitle">Real-time inventory from official brand channels. Enjoy instant checkout with secure payment gateway & EMI.</p>
+        </div>
+
+        <!-- Catalog Toolbar: Filters, Search Status, Sorting -->
+        <div class="catalog-toolbar">
+          
+          <!-- Category Filter Tabs -->
+          <div class="filter-tabs-scroll">
+            <div class="filter-tabs" id="filterTabs">
+              <button class="filter-tab active" data-filter="all">All Phones</button>
+              <button class="filter-tab" data-filter="apple"><i class="fa-brands fa-apple"></i> Apple</button>
+              <button class="filter-tab" data-filter="samsung">Samsung</button>
+              <button class="filter-tab" data-filter="oneplus">OnePlus</button>
+              <button class="filter-tab" data-filter="google">Google Pixel</button>
+              <button class="filter-tab" data-filter="xiaomi">Xiaomi / Redmi</button>
+              <button class="filter-tab" data-filter="vivo">Vivo</button>
+              <button class="filter-tab" data-filter="oppo">Oppo</button>
+              <button class="filter-tab" data-filter="accessories"><i class="fa-solid fa-headphones"></i> Accessories</button>
+            </div>
+          </div>
+
+          <!-- Controls Row: Sort, Price Filter & Reset -->
+          <div class="toolbar-controls">
+            
+            <div class="filter-group">
+              <label for="sortSelect"><i class="fa-solid fa-arrow-down-short-wide"></i> Sort By:</label>
+              <select id="sortSelect" class="styled-select" aria-label="Sort products">
+                <option value="featured">Featured / Newest</option>
+                <option value="price-low">Price: Low to High</option>
+                <option value="price-high">Price: High to Low</option>
+                <option value="rating">Customer Rating</option>
+                <option value="discount">Biggest Discount</option>
+              </select>
+            </div>
+
+            <div class="filter-group price-filter-group">
+              <label for="priceRange">Max Price: <span id="priceRangeVal" class="price-val">₹1,50,000</span></label>
+              <input type="range" id="priceRange" min="2000" max="150000" step="1000" value="150000">
+            </div>
+
+            <!-- Active Results Counter -->
+            <div class="catalog-results-info">
+              <span id="productResultsCount">Showing 16 items</span>
+              <button id="resetFiltersBtn" class="reset-filters-btn" title="Reset all filters" style="display:none;">
+                <i class="fa-solid fa-rotate-left"></i> Reset
+              </button>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Products Grid Container -->
+        <div class="products-grid" id="productsGrid">
+          <!-- Dynamically populated via script.js -->
+        </div>
+
+        <!-- Empty State -->
+        <div class="empty-state" id="emptyState" style="display: none;">
+          <div class="empty-state-icon">
+            <i class="fa-solid fa-mobile-screen"></i>
+            <i class="fa-solid fa-question empty-q"></i>
+          </div>
+          <h3>No matching devices found</h3>
+          <p>We couldn't find any products matching your current filters or search term.</p>
+          <button class="btn btn-primary" id="clearAllFiltersBtn">
+            <i class="fa-solid fa-rotate-left"></i> Clear All Filters
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ACCESSORIES PROMO BANNER -->
+    <section class="accessories-banner-section" id="accessories-section">
+      <div class="container">
+        <div class="acc-banner-card">
+          <div class="acc-content">
+            <span class="acc-pill"><i class="fa-solid fa-headphones-simple"></i> ECOSYSTEM ACCESSORIES</span>
+            <h2>Supercharge Your Smartphone Experience</h2>
+            <p>From Apple AirPods Pro 2 to GaN 100W Fast Chargers, high-speed MagSafe power banks, and Galaxy Watch Ultra — pair your new device with genuine companion gear.</p>
+            <div class="acc-perks">
+              <span><i class="fa-solid fa-circle-check"></i> 100% Original Brand Warranty</span>
+              <span><i class="fa-solid fa-circle-check"></i> Flat 25% Off with Phone Purchase</span>
+            </div>
+            <button class="btn btn-primary" id="viewAccessoriesBtn">
+              <i class="fa-solid fa-plug"></i> View All Accessories
+            </button>
+          </div>
+          <div class="acc-image-side">
+            <img src="https://images.unsplash.com/photo-1600294037681-c80b4cb5b434?w=700&auto=format&fit=crop&q=80" alt="Premium Audio & Charging Accessories">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY CHOOSE US SECTION -->
+    <section class="why-us-section" id="why-us">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag"><i class="fa-solid fa-shield-halved"></i> THE MOBILEHUB PROMISE</div>
+          <h2 class="section-title">Why Tech Lovers Choose <span class="gradient-text">MobileHub</span></h2>
+          <p class="section-subtitle">We are committed to delivering the ultimate online smartphone purchasing journey across India.</p>
+        </div>
+
+        <div class="features-grid">
+          
+          <div class="feature-card">
+            <div class="feature-icon-circle blue-glow">
+              <i class="fa-solid fa-certificate"></i>
+            </div>
+            <h3>100% Genuine & Sealed</h3>
+            <p>Every smartphone is sourced straight from official Apple, Samsung, OnePlus, Xiaomi, Vivo, and Oppo warehouses with authentic warranty barcodes.</p>
+            <span class="feature-tag">Official Partner</span>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon-circle cyan-glow">
+              <i class="fa-solid fa-lock"></i>
+            </div>
+            <h3>256-Bit Encrypted Payments</h3>
+            <p>Military-grade encrypted transactions supporting UPI, Rupay, Mastercard, Visa, Net Banking, Cardless EMI, and Cash on Delivery.</p>
+            <span class="feature-tag">PCI-DSS Level 1</span>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon-circle purple-glow">
+              <i class="fa-solid fa-plane-departure"></i>
+            </div>
+            <h3>Air Express Shipping</h3>
+            <p>Guaranteed 24 to 48 hours doorstep dispatch with real-time GPS tracking and tamper-proof safety transit packaging.</p>
+            <span class="feature-tag">Free Above ₹999</span>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon-circle green-glow">
+              <i class="fa-solid fa-rotate-left"></i>
+            </div>
+            <h3>7-Day Hassle-Free Return</h3>
+            <p>If you encounter any manufacturing defect or transit damage, get an instant one-click replacement or 100% refund.</p>
+            <span class="feature-tag">Zero Questions Asked</span>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon-circle orange-glow">
+              <i class="fa-solid fa-tags"></i>
+            </div>
+            <h3>Best Price & Exchange Match</h3>
+            <p>Instant phone trade-in evaluation for your old smartphone. Receive up to ₹40,000 exchange bonus credited instantly.</p>
+            <span class="feature-tag">Best Value Guaranteed</span>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon-circle pink-glow">
+              <i class="fa-solid fa-headset"></i>
+            </div>
+            <h3>24/7 Tech Concierge</h3>
+            <p>Have questions about phone specs, camera comparisons, or data migration? Our certified smartphone experts are a call away.</p>
+            <span class="feature-tag">Toll-Free Support</span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CUSTOMER TESTIMONIALS SECTION -->
+    <section class="testimonials-section" id="testimonials">
+      <div class="container">
+        
+        <div class="section-header">
+          <div class="section-tag"><i class="fa-solid fa-star"></i> REAL REVIEWS BY REAL BUYERS</div>
+          <h2 class="section-title">Loved by Over <span class="gradient-text">50,000+ Customers</span></h2>
+          <p class="section-subtitle">Here is what verified smartphone enthusiasts across India have to say about their MobileHub shopping experience.</p>
+        </div>
+
+        <div class="testimonials-grid">
+          
+          <div class="testimonial-card">
+            <div class="review-top">
+              <div class="reviewer-info">
+                <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=120&auto=format&fit=crop&q=80" alt="Aarav Sharma" class="reviewer-avatar">
+                <div>
+                  <h4 class="reviewer-name">Aarav Sharma</h4>
+                  <span class="reviewer-location"><i class="fa-solid fa-location-dot"></i> Bengaluru, Karnataka</span>
+                </div>
+              </div>
+              <div class="stars-row">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+            </div>
+            <p class="review-text">
+              "Ordered the iPhone 17 Pro Max 256GB on launch day. It arrived in Bengaluru within 24 hours in tamper-proof seal packaging! Also got ₹7,000 instant discount with the coupon. Outstanding service!"
+            </p>
+            <div class="verified-purchase">
+              <i class="fa-solid fa-circle-check"></i> Verified Purchase: <strong>Apple iPhone 17 Pro Max</strong>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="review-top">
+              <div class="reviewer-info">
+                <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?w=120&auto=format&fit=crop&q=80" alt="Rohan Verma" class="reviewer-avatar">
+                <div>
+                  <h4 class="reviewer-name">Rohan Verma</h4>
+                  <span class="reviewer-location"><i class="fa-solid fa-location-dot"></i> Mumbai, Maharashtra</span>
+                </div>
+              </div>
+              <div class="stars-row">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+            </div>
+            <p class="review-text">
+              "Switched from iPhone to the Samsung Galaxy S25 Ultra. The display and S-Pen integration are mind-blowing. The MobileHub team answered all my questions via WhatsApp support and delivery was flawless."
+            </p>
+            <div class="verified-purchase">
+              <i class="fa-solid fa-circle-check"></i> Verified Purchase: <strong>Samsung Galaxy S25 Ultra</strong>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="review-top">
+              <div class="reviewer-info">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=120&auto=format&fit=crop&q=80" alt="Priya Nair" class="reviewer-avatar">
+                <div>
+                  <h4 class="reviewer-name">Priya Nair</h4>
+                  <span class="reviewer-location"><i class="fa-solid fa-location-dot"></i> Kochi, Kerala</span>
+                </div>
+              </div>
+              <div class="stars-row">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+            </div>
+            <p class="review-text">
+              "Bought the OnePlus 13 for my brother's birthday. 100W SuperVOOC charge is unreal — full battery in 25 mins. The No-Cost EMI option on HDFC card made the purchase so easy and budget-friendly."
+            </p>
+            <div class="verified-purchase">
+              <i class="fa-solid fa-circle-check"></i> Verified Purchase: <strong>OnePlus 13 5G</strong>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Rating Summary Bar -->
+        <div class="rating-strip-bar">
+          <div class="strip-item">
+            <span class="strip-score">4.92 / 5.0</span>
+            <div class="strip-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+            <span class="strip-label">Based on 14,800+ Verified Ratings</span>
+          </div>
+          <div class="strip-item">
+            <span class="strip-score">99.4%</span>
+            <span class="strip-label">On-Time Delivery Rate Across India</span>
+          </div>
+          <div class="strip-item">
+            <span class="strip-score">100%</span>
+            <span class="strip-label">Genuine IMEI Registrable on Official Portals</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FAQ ACCORDION SECTION -->
+    <section class="faq-section" id="faq">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag"><i class="fa-solid fa-circle-question"></i> FREQUENTLY ASKED QUESTIONS</div>
+          <h2 class="section-title">Got Questions? <span class="gradient-text">We Have Answers</span></h2>
+          <p class="section-subtitle">Everything you need to know about warranties, delivery, EMI, and phone exchange.</p>
+        </div>
+
+        <div class="faq-accordion" id="faqAccordion">
+          
+          <div class="faq-item active">
+            <button class="faq-question" aria-expanded="true">
+              <span>Are all smartphones sold on MobileHub brand new and sealed?</span>
+              <i class="fa-solid fa-chevron-down faq-icon"></i>
+            </button>
+            <div class="faq-answer">
+              <p>Yes, 100%. All devices sold on MobileHub are brand-new, factory-sealed Indian retail units. You can register the device IMEI directly on the respective brand portal (Apple Care, Samsung Members, OnePlus Red Cable Club, etc.) to verify warranty.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>How does the 1-Year Official Brand Warranty work?</span>
+              <i class="fa-solid fa-chevron-down faq-icon"></i>
+            </button>
+            <div class="faq-answer">
+              <p>Every phone comes with an official GST tax invoice. You are eligible for full warranty services across all authorized brand service centers in India for 365 days from the date of invoice. Simply walk into any authorized center with your phone and invoice.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>How long does delivery take to my city?</span>
+              <i class="fa-solid fa-chevron-down faq-icon"></i>
+            </button>
+            <div class="faq-answer">
+              <p>Metro cities (Delhi NCR, Mumbai, Bengaluru, Hyderabad, Chennai, Kolkata, Pune) enjoy guaranteed 24-48 hours express delivery. Tier 2 and Tier 3 cities receive delivery within 3-4 working days via insured BlueDart Air & Delhivery Air.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Can I pay using No-Cost EMI or UPI?</span>
+              <i class="fa-solid fa-chevron-down faq-icon"></i>
+            </button>
+            <div class="faq-answer">
+              <p>Yes! We offer 3, 6, 9, 12, and 24-month No-Cost EMI options on credit cards from HDFC, ICICI, SBI, Axis, Kotak, and Amex. We also support all major UPI applications (Google Pay, PhonePe, Paytm, CRED), Net Banking, and Cash on Delivery (COD).</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>What is your 7-Day Replacement Policy?</span>
+              <i class="fa-solid fa-chevron-down faq-icon"></i>
+            </button>
+            <div class="faq-answer">
+              <p>If your device arrives damaged or experiences any manufacturing hardware defect within 7 days of delivery, we arrange a free doorstep pickup and dispatch an immediate brand-new replacement unit with zero questions asked.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- NEWSLETTER SUBSCRIPTION SECTION -->
+    <section class="newsletter-section">
+      <div class="container">
+        <div class="newsletter-card">
+          <div class="newsletter-glow"></div>
+          <div class="newsletter-content">
+            <div class="newsletter-badge"><i class="fa-solid fa-gift"></i> TECH INSIDER PRIVILEGE</div>
+            <h2>Join the MobileHub VIP Club</h2>
+            <p>Subscribe for free and unlock an instant <strong>₹1,000 gift voucher</strong> on your first smartphone purchase, plus early VIP access to flash deals and phone giveaways.</p>
+            
+            <form class="newsletter-form" id="newsletterForm">
+              <div class="nl-input-group">
+                <i class="fa-solid fa-envelope nl-icon"></i>
+                <input 
+                  type="email" 
+                  id="newsletterEmail" 
+                  placeholder="Enter your email address..." 
+                  required 
+                  aria-label="Email for newsletter"
+                >
+                <button type="submit" class="btn btn-primary nl-submit-btn">
+                  <span>Claim ₹1,000 Voucher</span>
+                  <i class="fa-solid fa-arrow-right"></i>
+                </button>
+              </div>
+            </form>
+
+            <div class="newsletter-terms">
+              <i class="fa-solid fa-lock"></i> No spam ever. Unsubscribe anytime with 1-click.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT & ASSISTANCE SECTION -->
+    <section class="contact-section" id="contact">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag"><i class="fa-solid fa-headset"></i> GET IN TOUCH</div>
+          <h2 class="section-title">Need Help Choosing <span class="gradient-text">Your Device?</span></h2>
+          <p class="section-subtitle">Reach out to our certified smartphone specialists for personalized recommendations and enterprise bulk inquiries.</p>
+        </div>
+
+        <div class="contact-grid">
+          
+          <div class="contact-card">
+            <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
+            <h3>Call Helpline</h3>
+            <p>Toll-free customer care line open 9 AM – 9 PM, all 7 days.</p>
+            <a href="tel:18008896624" class="contact-cta">1800-889-MOBI</a>
+          </div>
+
+          <div class="contact-card">
+            <div class="contact-icon"><i class="fa-brands fa-whatsapp"></i></div>
+            <h3>WhatsApp Support</h3>
+            <p>Chat directly with a smartphone technician for quick queries.</p>
+            <a href="https://wa.me/919876543210" target="_blank" rel="noopener" class="contact-cta">+91 98765 43210</a>
+          </div>
+
+          <div class="contact-card">
+            <div class="contact-icon"><i class="fa-solid fa-envelope-open-text"></i></div>
+            <h3>Email Support</h3>
+            <p>Drop us a note anytime and get a response within 2 hours.</p>
+            <a href="mailto:support@mobilehub.in" class="contact-cta">support@mobilehub.in</a>
+          </div>
+
+          <div class="contact-card">
+            <div class="contact-icon"><i class="fa-solid fa-store"></i></div>
+            <h3>Experience Stores</h3>
+            <p>Visit flagship demo lounges in Mumbai, Bengaluru, and Delhi.</p>
+            <span class="contact-cta text-accent">Find Nearest Store</span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      
+      <!-- Brand & Mission Col -->
+      <div class="footer-col brand-col">
+        <a href="#" class="brand-logo footer-logo">
+          <i class="fa-solid fa-mobile-screen-button logo-icon"></i>
+          <span class="logo-title">Mobile<span class="accent-text">Hub</span></span>
+        </a>
+        <p class="footer-about">
+          MobileHub is India's most trusted online destination for authentic flagship smartphones and accessories. Bringing cutting-edge technology directly to your hands with transparent pricing and gold-standard warranty.
+        </p>
+        <div class="social-links">
+          <a href="#" class="social-icon" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          <a href="#" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="social-icon" aria-label="Twitter / X"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" class="social-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#" class="social-icon" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a>
+        </div>
+      </div>
+
+      <!-- Quick Links Col -->
+      <div class="footer-col">
+        <h4 class="footer-heading">Smartphones</h4>
+        <ul class="footer-links">
+          <li><a href="#products" data-footer-filter="apple">Apple iPhone 17 & 16</a></li>
+          <li><a href="#products" data-footer-filter="samsung">Samsung Galaxy S25 Series</a></li>
+          <li><a href="#products" data-footer-filter="oneplus">OnePlus 13 & Nord Series</a></li>
+          <li><a href="#products" data-footer-filter="google">Google Pixel 10 Pro</a></li>
+          <li><a href="#products" data-footer-filter="xiaomi">Xiaomi & Redmi Note 14</a></li>
+          <li><a href="#products" data-footer-filter="vivo">Vivo V40 & X200 Series</a></li>
+          <li><a href="#products" data-footer-filter="oppo">Oppo Find X8 & Reno 12</a></li>
+        </ul>
+      </div>
+
+      <!-- Customer Service Col -->
+      <div class="footer-col">
+        <h4 class="footer-heading">Customer Care</h4>
+        <ul class="footer-links">
+          <li><a href="#faq">Track Your Order</a></li>
+          <li><a href="#faq">Warranty & Registration</a></li>
+          <li><a href="#faq">7-Day Replacement Policy</a></li>
+          <li><a href="#faq">No-Cost EMI Options</a></li>
+          <li><a href="#faq">Smartphone Trade-in / Exchange</a></li>
+          <li><a href="#contact">Locate Service Center</a></li>
+          <li><a href="#contact">Corporate & Bulk Purchasing</a></li>
+        </ul>
+      </div>
+
+      <!-- Payment & Security Col -->
+      <div class="footer-col">
+        <h4 class="footer-heading">Safe & Certified Shopping</h4>
+        <p class="footer-subtext">All transactions are secured with 256-bit SSL encryption. We accept all major Indian payment options:</p>
+        
+        <div class="payment-badges-grid">
+          <span class="pay-chip"><i class="fa-solid fa-qrcode"></i> UPI</span>
+          <span class="pay-chip"><i class="fa-brands fa-google-pay"></i> GPay</span>
+          <span class="pay-chip"><i class="fa-brands fa-cc-visa"></i> Visa</span>
+          <span class="pay-chip"><i class="fa-brands fa-cc-mastercard"></i> Master</span>
+          <span class="pay-chip"><i class="fa-solid fa-credit-card"></i> RuPay</span>
+          <span class="pay-chip"><i class="fa-solid fa-money-bill-wave"></i> COD</span>
+        </div>
+
+        <div class="footer-security-badge">
+          <i class="fa-solid fa-shield-virus"></i>
+          <span>Verified Secure 256-Bit SSL Store</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom Copyright Bar -->
+    <div class="footer-bottom">
+      <div class="container footer-bottom-content">
+        <p>© 2026 MobileHub Technologies Pvt. Ltd. All Rights Reserved. Crafted for smartphone enthusiasts.</p>
+        <div class="bottom-legal-links">
+          <a href="#">Privacy Policy</a>
+          <span>•</span>
+          <a href="#">Terms of Sale</a>
+          <span>•</span>
+          <a href="#">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING BACK TO TOP BUTTON -->
+  <button class="back-to-top-btn" id="backToTopBtn" aria-label="Back to top">
+    <i class="fa-solid fa-chevron-up"></i>
+  </button>
+
+  <!-- ========================================================== -->
+  <!-- MODALS & DRAWERS (CART, WISHLIST, QUICK VIEW, CHECKOUT)    -->
+  <!-- ========================================================== -->
+
+  <!-- 1. SLIDE-OUT SHOPPING CART DRAWER -->
+  <div class="modal-backdrop" id="cartBackdrop"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping Cart Drawer">
+    
+    <div class="cart-drawer-header">
+      <div class="cart-title-wrap">
+        <i class="fa-solid fa-bag-shopping text-accent"></i>
+        <h3>Your Cart (<span id="cartItemCountHeader">0</span>)</h3>
+      </div>
+      <button class="cart-close-btn" id="cartCloseBtn" aria-label="Close cart">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <!-- Free Delivery Progress Bar -->
+    <div class="cart-delivery-banner" id="cartDeliveryBanner">
+      <div class="delivery-text-wrap">
+        <span id="deliveryProgressText"><i class="fa-solid fa-truck-fast"></i> Add ₹999 for FREE Express Delivery</span>
+      </div>
+      <div class="delivery-progress-track">
+        <div class="delivery-progress-fill" id="deliveryProgressFill" style="width: 0%;"></div>
+      </div>
+    </div>
+
+    <!-- Cart Items Scroll Area -->
+    <div class="cart-items-body" id="cartItemsList">
+      <!-- Populated dynamically via JS -->
+    </div>
+
+    <!-- Cart Footer & Checkout -->
+    <div class="cart-drawer-footer" id="cartDrawerFooter">
+      
+      <!-- Coupon Code Section -->
+      <div class="cart-coupon-box">
+        <div class="coupon-input-wrap">
+          <i class="fa-solid fa-tag"></i>
+          <input type="text" id="cartCouponInput" placeholder="Enter coupon (e.g. MOBHUB10)" uppercase>
+          <button type="button" id="cartApplyCouponBtn">Apply</button>
+        </div>
+        <div class="coupon-feedback" id="couponFeedback"></div>
+      </div>
+
+      <!-- Financial Breakdown -->
+      <div class="cart-summary-lines">
+        <div class="summary-line">
+          <span>Subtotal</span>
+          <span id="cartSubtotal">₹0</span>
+        </div>
+        <div class="summary-line" id="discountLine" style="display:none;">
+          <span class="text-success"><i class="fa-solid fa-tags"></i> Discount (<span id="discountCodeName"></span>)</span>
+          <span class="text-success" id="cartDiscount">-₹0</span>
+        </div>
+        <div class="summary-line">
+          <span>Express Delivery</span>
+          <span id="cartDeliveryFee" class="text-success">FREE</span>
+        </div>
+        <div class="summary-line summary-total">
+          <span>Grand Total</span>
+          <span id="cartGrandTotal">₹0</span>
+        </div>
+      </div>
+
+      <div class="cart-actions-group">
+        <button class="btn btn-primary btn-block checkout-btn" id="proceedToCheckoutBtn">
+          <span>Proceed to Checkout</span>
+          <i class="fa-solid fa-lock"></i>
+        </button>
+        <button class="btn btn-outline btn-block" id="clearCartBtn">
+          <i class="fa-solid fa-trash-can"></i> Clear Cart
+        </button>
+      </div>
+
+      <div class="cart-trust-note">
+        <i class="fa-solid fa-shield-check"></i> Safe 256-Bit SSL Checkout • 7-Day Easy Returns
+      </div>
+
+    </div>
+
+  </aside>
+
+  <!-- 2. SLIDE-OUT WISHLIST DRAWER -->
+  <div class="modal-backdrop" id="wishlistBackdrop"></div>
+  <aside class="wishlist-drawer" id="wishlistDrawer" aria-label="Saved Wishlist">
+    <div class="cart-drawer-header">
+      <div class="cart-title-wrap">
+        <i class="fa-solid fa-heart text-danger"></i>
+        <h3>My Wishlist (<span id="wishlistCountHeader">0</span>)</h3>
+      </div>
+      <button class="cart-close-btn" id="wishlistCloseBtn" aria-label="Close wishlist">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <div class="wishlist-items-body" id="wishlistItemsList">
+      <!-- Populated via JS -->
+    </div>
+
+    <div class="wishlist-drawer-footer">
+      <button class="btn btn-primary btn-block" id="moveAllWishlistToCartBtn">
+        <i class="fa-solid fa-cart-plus"></i> Move All to Cart
+      </button>
+    </div>
+  </aside>
+
+  <!-- 3. PRODUCT DETAILS QUICK VIEW MODAL -->
+  <div class="modal-backdrop" id="quickViewBackdrop"></div>
+  <div class="quickview-modal" id="quickViewModal" role="dialog" aria-modal="true" aria-labelledby="modalPhoneTitle">
+    <button class="modal-close-btn" id="quickViewCloseBtn" aria-label="Close product details">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+    
+    <div class="quickview-content" id="quickViewContent">
+      <!-- Dynamic rendering via JS -->
+    </div>
+  </div>
+
+  <!-- 4. CHECKOUT MODAL SIMULATION -->
+  <div class="modal-backdrop" id="checkoutBackdrop"></div>
+  <div class="checkout-modal" id="checkoutModal" role="dialog" aria-modal="true" aria-labelledby="checkoutHeading">
+    <button class="modal-close-btn" id="checkoutCloseBtn" aria-label="Close checkout">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+    
+    <div class="checkout-modal-body">
+      
+      <!-- Checkout Form View -->
+      <div id="checkoutFormView">
+        <div class="checkout-header">
+          <div class="logo-icon-wrap"><i class="fa-solid fa-shield-halved"></i></div>
+          <div>
+            <h3 id="checkoutHeading">Express Secure Checkout</h3>
+            <p>Complete your order to receive immediate confirmation and tracking details.</p>
+          </div>
+        </div>
+
+        <form id="checkoutForm" class="checkout-form">
+          <div class="form-row-2">
+            <div class="form-group">
+              <label for="custName"><i class="fa-solid fa-user"></i> Full Name *</label>
+              <input type="text" id="custName" placeholder="e.g. Rahul Sharma" required>
+            </div>
+            <div class="form-group">
+              <label for="custPhone"><i class="fa-solid fa-phone"></i> Mobile Phone (for OTP & tracking) *</label>
+              <input type="tel" id="custPhone" placeholder="e.g. 9876543210" pattern="[0-9]{10}" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="custEmail"><i class="fa-solid fa-envelope"></i> Email Address (for GST invoice) *</label>
+            <input type="email" id="custEmail" placeholder="e.g. rahul@example.com" required>
+          </div>
+
+          <div class="form-group">
+            <label for="custAddress"><i class="fa-solid fa-house"></i> Delivery Address *</label>
+            <textarea id="custAddress" rows="2" placeholder="Flat / House No., Street, Landmark..." required></textarea>
+          </div>
+
+          <div class="form-row-2">
+            <div class="form-group">
+              <label for="custCity"><i class="fa-solid fa-city"></i> City *</label>
+              <input type="text" id="custCity" placeholder="e.g. Mumbai" required>
+            </div>
+            <div class="form-group">
+              <label for="custPincode"><i class="fa-solid fa-location-dot"></i> PIN Code *</label>
+              <input type="text" id="custPincode" placeholder="e.g. 400001" pattern="[0-9]{6}" required>
+            </div>
+          </div>
+
+          <!-- Payment Options -->
+          <div class="form-group">
+            <label class="section-subheading"><i class="fa-solid fa-wallet"></i> Choose Payment Method</label>
+            
+            <div class="payment-method-selector">
+              <label class="pay-option">
+                <input type="radio" name="paymentMethod" value="upi" checked>
+                <div class="pay-option-card">
+                  <i class="fa-solid fa-qrcode text-accent"></i>
+                  <div>
+                    <strong>Instant UPI</strong>
+                    <span>GPay, PhonePe, Paytm (Flat ₹200 Cashback)</span>
+                  </div>
+                </div>
+              </label>
+
+              <label class="pay-option">
+                <input type="radio" name="paymentMethod" value="card">
+                <div class="pay-option-card">
+                  <i class="fa-solid fa-credit-card text-accent"></i>
+                  <div>
+                    <strong>Credit / Debit Card</strong>
+                    <span>Visa, Mastercard, RuPay & No-Cost EMI</span>
+                  </div>
+                </div>
+              </label>
+
+              <label class="pay-option">
+                <input type="radio" name="paymentMethod" value="cod">
+                <div class="pay-option-card">
+                  <i class="fa-solid fa-truck-ramp-box text-accent"></i>
+                  <div>
+                    <strong>Cash on Delivery (COD)</strong>
+                    <span>Pay cash or UPI at your doorstep</span>
+                  </div>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <!-- Order Summary Inside Checkout -->
+          <div class="checkout-review-box">
+            <div class="checkout-review-row">
+              <span>Items Total:</span>
+              <strong id="checkoutSubtotal">₹0</strong>
+            </div>
+            <div class="checkout-review-row">
+              <span>Delivery Charges:</span>
+              <strong class="text-success">FREE</strong>
+            </div>
+            <div class="checkout-review-row" id="checkoutDiscountRow" style="display:none;">
+              <span class="text-success">Discount:</span>
+              <strong class="text-success" id="checkoutDiscountVal">-₹0</strong>
+            </div>
+            <div class="checkout-review-row total-highlight">
+              <span>Amount Payable:</span>
+              <strong id="checkoutFinalAmount">₹0</strong>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block btn-lg" id="submitOrderBtn">
+            <i class="fa-solid fa-lock"></i>
+            <span>Confirm & Place Order</span>
+          </button>
+        </form>
+      </div>
+
+      <!-- Order Success Celebration View -->
+      <div id="checkoutSuccessView" style="display: none;">
+        <div class="success-animation-wrap">
+          <div class="checkmark-circle">
+            <i class="fa-solid fa-check"></i>
+          </div>
+          <h2>Order Confirmed Successfully!</h2>
+          <p class="success-sub">Thank you for shopping at MobileHub. Your flagship smartphone is being carefully packed at our warehouse.</p>
+        </div>
+
+        <div class="order-receipt-card">
+          <div class="receipt-row">
+            <span>Order Reference ID:</span>
+            <strong class="text-accent" id="receiptOrderId">MH-842918</strong>
+          </div>
+          <div class="receipt-row">
+            <span>Estimated Delivery:</span>
+            <strong id="receiptDeliveryDate">Within 24-48 Hours</strong>
+          </div>
+          <div class="receipt-row">
+            <span>Payment Status:</span>
+            <strong class="text-success" id="receiptPaymentMode">Confirmed (UPI)</strong>
+          </div>
+          <div class="receipt-row">
+            <span>Amount Paid:</span>
+            <strong class="text-white" id="receiptAmount">₹0</strong>
+          </div>
+          <div class="receipt-row">
+            <span>Shipped To:</span>
+            <span id="receiptCustomerInfo"></span>
+          </div>
+        </div>
+
+        <div class="success-actions">
+          <button class="btn btn-primary" id="continueShoppingBtn">
+            <i class="fa-solid fa-bag-shopping"></i> Continue Shopping
+          </button>
+          <button class="btn btn-outline" id="printReceiptBtn">
+            <i class="fa-solid fa-print"></i> Print Invoice
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION CONTAINER -->
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+  <!-- JavaScript Application -->
+  <script src="script.js"></script>
+</body>
+</html>
+
